@@ -8,7 +8,7 @@ import System.Environment
 import Propylgraph.Sentences
 
 parseArgs :: [String] -> IO ()
-parseArgs (inputFileName : []) = TIO.readFile inputFileName >>= print . sentences
+parseArgs (inputFileName : []) = TIO.readFile inputFileName >>= print . ((concatMap adjacencies) . sentences)
 parseArgs _                    = putStrLn "You're a dummy."
 
 main = getArgs >>= parseArgs
