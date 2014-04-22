@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Propylgraph.Sentences (sentences, adjacencies, pairs) where
+module Propylgraph.Sentences (sentences, pairs) where
 
 import Data.List
 import qualified Data.Text.Lazy as T
@@ -18,7 +18,7 @@ sentences xs = filter (not . null) $ map T.words phrases
                    T.filter (`notElem` punctuation) $
                    T.toLower xs
 
-diag : [a] -> [(a, a)]
+diag :: [a] -> [(a, a)]
 diag []        = []
 diag (_:[])    = []
 diag (x:x':xs) = (x, x') : diag (x' : xs)
