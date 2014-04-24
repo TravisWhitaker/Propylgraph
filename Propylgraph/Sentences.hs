@@ -24,7 +24,7 @@ diag (_:[])    = []
 diag (x:x':xs) = (x, x') : diag (x' : xs)
 
 heads :: [a] -> [(a, [a])]
-heads []    = []
+heads []     = []
 heads (x:[]) = [(x, [])]
 heads (x:xs) = (x, xs) : heads xs
 
